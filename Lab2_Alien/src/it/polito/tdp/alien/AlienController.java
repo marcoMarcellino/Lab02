@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AlienController {
+	private Dizionario dizionario=new Dizionario();
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -39,7 +40,14 @@ public class AlienController {
 
     @FXML
     void doTranslate(ActionEvent event) {
-
+     String tmp=txtWord.getText().replaceAll("[^a-zA-Z ]", "");
+     String array[] =tmp.split(" ");
+     if(array.length==1) {
+     txtResult.appendText("\n"+dizionario.cerca(array[0]));
+     }
+     else if(array.length==2) {
+    	 dizionario.aggiungi(array[0],array[1]);
+     }
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
