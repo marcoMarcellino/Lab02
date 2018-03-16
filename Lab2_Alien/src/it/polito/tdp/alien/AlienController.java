@@ -35,7 +35,9 @@ public class AlienController {
 
     @FXML
     void doReset(ActionEvent event) {
-
+    	
+    	txtResult.clear();
+    	txtResult.setText(" Welcome to Alien Dictionary v2016");
     }
 
     @FXML
